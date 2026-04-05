@@ -1,0 +1,25 @@
+{
+  "serverUrl": "ws://localhost:8010/OCPP16/<YOUR_TENANT_ID>/<YOUR_REGISTRATION_TOKEN_ID>",
+  "chargingStationId": "SIM-CS-001",
+  "vendor": "SimulatorCo",
+  "model": "SimCharger-22kW",
+  "serialNumber": "SIM-SN-0001",
+  "firmwareVersion": "1.0.0",
+  "connectors": [
+    {
+      "id": 1,
+      "maxPowerWatts": 22000,
+      "voltage": 230,
+      "phases": 3
+    },
+    {
+      "id": 2,
+      "maxPowerWatts": 22000,
+      "voltage": 230,
+      "phases": 3
+    }
+  ],
+  "heartbeatIntervalSecs": 60,
+  "meterValueIntervalSecs": 60,
+  "verbose": false
+}

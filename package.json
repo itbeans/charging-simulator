@@ -1,0 +1,25 @@
+{
+  "name": "ev-charger-simulator",
+  "version": "1.0.0",
+  "description": "OCPP 1.6J charger simulator for testing ev-server",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "simulate": "ts-node src/index.ts simulate",
+    "scenario": "ts-node src/index.ts scenario"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0",
+    "ws": "^8.14.2",
+    "chalk": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "@types/uuid": "^9.0.0",
+    "@types/ws": "^8.5.6",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  }
+}
