@@ -1,0 +1,95 @@
+# Cloud Build pipeline — EV Charger Simulator
+#
+# Triggered on every push to `main`.
+# Steps:
+#   1. Build the Docker image (multi-stage, context = simulator/)
+#   2. Push :$SHORT_SHA and :latest to Artifact Registry
+#   3. Deploy a new revision of the Cloud Run boot service
+#
+# Required substitutions (set in the Cloud Build trigger):
+#   _REGION       — GCP region, e.g. europe-west1
+#   _PROJECT_ID   — GCP project ID
+#   _REPO         — Artifact Registry repo name, e.g. ev-simulator
+#   _SERVICE_NAME — Cloud Run service name, e.g. ev-sim-boot
+#   _SA           — Service account email for the Cloud Run service
+
+substitutions:
+  _REGION: europe-west1
+  _PROJECT_ID: YOUR_PROJECT_ID
+  _REPO: ev-simulator
+  _SERVICE_NAME: ev-sim-boot
+  _SA: ev-simulator-sa@YOUR_PROJECT_ID.iam.gserviceaccount.com
+
+steps:
+  # ── Step 1: Build ────────────────────────────────────────────────────────────
+  - name: gcr.io/cloud-builders/docker
+    id: build
+    args:
+      - build
+      - -f
+      - simulator/Dockerfile       # Dockerfile location relative to repo root
+      - -t
+      - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA
+      - -t
+      - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:latest
+      - simulator                  # Build context is the simulator/ directory
+
+  # ── Step 2: Push (SHA tag) ────────────────────────────────────────────────────
+  - name: gcr.io/cloud-builders/docker
+    id: push-sha
+    waitFor:
+      - build
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA
+
+  # ── Step 3: Push (latest tag) ────────────────────────────────────────────────
+  - name: gcr.io/cloud-builders/docker
+    id: push-latest
+    waitFor:
+      - build
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:latest
+
+  # ── Step 4: Deploy boot service ───────────────────────────────────────────────
+  # Uses the SHA-pinned tag so each deploy is traceable to a specific commit.
+  # Cloud Run will:
+  #   - Create a new revision
+  #   - Send SIGTERM to the previous revision (triggers graceful WebSocket disconnect)
+  #   - Route 100% traffic to the new revision
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: deploy-boot-service
+    waitFor:
+      - push-sha
+      - push-latest
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE_NAME}
+      - --image=${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA
+      - --region=${_REGION}
+      - --platform=managed
+      - --no-allow-unauthenticated        # No public HTTP access needed
+      - --service-account=${_SA}
+      - --min-instances=1                 # Prevent scale-to-zero (keep WebSocket alive)
+      - --max-instances=1                 # One charger identity = one instance
+      - --cpu=1
+      - --memory=256Mi
+      - --no-cpu-throttling               # Required: keeps setInterval timers running
+      - --timeout=3600                    # Max request timeout (defensive)
+      - --set-secrets=EV_SIM_SERVER_URL=ev-sim-server-url:latest
+      - --set-secrets=EV_SIM_ID_TAG=ev-sim-id-tag:latest
+      - --set-env-vars=EV_SIM_STATION_ID=SIM-CS-001,EV_SIM_VERBOSE=false
+      - --args=boot
+      - --project=${_PROJECT_ID}
+
+# Export both image tags to the build artifacts
+images:
+  - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA
+  - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_8    # Faster builds; billed per-second
