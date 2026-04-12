@@ -1,0 +1,415 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 2 /Kids [ 3 0 R 4 0 R ] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> >> /Contents 5 0 R >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> >> /Contents 6 0 R >>
+endobj
+5 0 obj
+<< /Length 4404 >>
+stream
+q
+0.90 0.97 0.92 rg
+0 0 595 842 re f
+0.98 0.97 0.86 rg
+0 437.84000000000003 595 404.15999999999997 re f
+0.98 0.97 0.86 rg
+0 0 327.25 235.76000000000002 re f
+Q
+BT
+0.25 0.55 0.30 rg
+/F2 25 Tf
+1 0 0 1 48 788 Tm
+(EV Charger Simulator) Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 17 Tf
+1 0 0 1 48 754 Tm
+(Validate OCPP charging operations without physical hardware) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 728 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 708 Tm
+(What it is) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 689 Tm
+(The EV Charger Simulator is a production-focused **OCPP 1.6J simulation) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 674 Tm
+(toolkit** that behaves like real charging stations over WebSocket. Teams use) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 659 Tm
+(it to test onboarding, charging sessions, billing logic, and remote command) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 644 Tm
+(handling before deploying to live infrastructure.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 625 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 605 Tm
+(Why teams use it) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 586 Tm
+(• **Launch faster:** test charger workflows on day one, without waiting for) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 571 Tm
+(devices in the field.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 555 Tm
+(• **Lower QA cost:** run repeatable automated scenarios instead of manual) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 540 Tm
+(hardware test cycles.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 524 Tm
+(• **Catch edge cases early:** validate resets, reconnects, meter bursts, and) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 509 Tm
+(fleet surges in controlled environments.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 493 Tm
+(• **Scale confidently:** simulate dozens of connectors and multiple stations) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 478 Tm
+(in parallel.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 459 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 439 Tm
+(Core capabilities) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 420 Tm
+(• Full charger lifecycle support:) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 404 Tm
+(- `BootNotification`, `StatusNotification`, `Heartbeat`) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 388 Tm
+(- `Authorize`, `StartTransaction`, `MeterValues`, `StopTransaction`) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 372 Tm
+(• Handles server-initiated commands, including:) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 356 Tm
+(- `RemoteStartTransaction`, `RemoteStopTransaction`, `Reset`) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 340 Tm
+(- `ChangeConfiguration`, `GetConfiguration`) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 324 Tm
+(- `SetChargingProfile`, `ClearCache`, `UnlockConnector`) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 308 Tm
+(• Meter values for realistic downstream testing:) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 292 Tm
+(- Energy, power, current, and voltage streams) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 273 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 253 Tm
+(Four usage modes) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 234 Tm
+(• **boot** — keeps a simulated charger online for manual command testing.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 218 Tm
+(• **session** — executes one complete charge session flow.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 202 Tm
+(• **multi** — runs concurrent sessions across all connectors.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 186 Tm
+(• **fleet** — launches many chargers simultaneously for load and stress tests.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 167 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 147 Tm
+(Built for engineering and operations) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 128 Tm
+(• Supports local development, CI pipelines, and staging validation.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 112 Tm
+(• Accelerated time mode can compress long sessions into short test windows.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 96 Tm
+(• Helps verify platform behavior before touching customer-facing systems.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 77 Tm
+() Tj
+ET
+endstream
+endobj
+6 0 obj
+<< /Length 1695 >>
+stream
+q
+0.90 0.97 0.92 rg
+0 0 595 842 re f
+0.98 0.97 0.86 rg
+0 437.84000000000003 595 404.15999999999997 re f
+0.98 0.97 0.86 rg
+0 0 327.25 235.76000000000002 re f
+Q
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 794 Tm
+(Typical outcomes) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 775 Tm
+(• Faster integration with OCPP-compliant backends) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 759 Tm
+(• Better reliability of remote operations) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 743 Tm
+(• More predictable releases with fewer field regressions) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 727 Tm
+(• Improved confidence in billing and transaction analytics) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 708 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 688 Tm
+(Quick start) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 668 Tm
+() Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 651 Tm
+(npm install) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 635 Tm
+(cp config.example.json config.json) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 619 Tm
+(npm run dev boot) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 602 Tm
+() Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 582 Tm
+() Tj
+ET
+BT
+0.25 0.55 0.30 rg
+/F2 13 Tf
+1 0 0 1 48 562 Tm
+(Best fit) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 543 Tm
+(The simulator is ideal for EV charging platforms, CPO engineering teams,) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 528 Tm
+(integrators, and QA organizations that need dependable, repeatable charger) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 11.5 Tf
+1 0 0 1 48 513 Tm
+(behavior at scale.) Tj
+ET
+BT
+0.11 0.24 0.17 rg
+/F1 12 Tf
+1 0 0 1 48 494 Tm
+() Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+8 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 9
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000123 00000 n 
+0000000259 00000 n 
+0000000395 00000 n 
+0000004850 00000 n 
+0000006596 00000 n 
+0000006666 00000 n 
+trailer
+<< /Size 9 /Root 1 0 R >>
+startxref
+6741
+%%EOF
