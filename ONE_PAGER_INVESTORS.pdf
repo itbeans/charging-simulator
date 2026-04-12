@@ -6,264 +6,272 @@ endobj
 << /Type /Pages /Count 2 /Kids [ 3 0 R 4 0 R ] >>
 endobj
 3 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> >> /Contents 5 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> /ExtGState << /GS1 9 0 R /GS2 10 0 R /GS3 11 0 R /GS4 12 0 R >> >> /Contents 5 0 R >>
 endobj
 4 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> >> /Contents 6 0 R >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 7 0 R /F2 8 0 R >> /ExtGState << /GS1 9 0 R /GS2 10 0 R /GS3 11 0 R /GS4 12 0 R >> >> /Contents 6 0 R >>
 endobj
 5 0 obj
-<< /Length 4307 >>
+<< /Length 4428 >>
 stream
 q
-0.90 0.97 0.92 rg
+0.97 0.99 0.98 rg
 0 0 595 842 re f
-0.98 0.97 0.86 rg
-0 437.84000000000003 595 404.15999999999997 re f
-0.98 0.97 0.86 rg
-0 0 327.25 235.76000000000002 re f
+/GS1 gs
+0.67 0.82 0.71 rg
+-40 530.46 547.4 353.64 re f
+/GS2 gs
+0.96 0.82 0.36 rg
+202.3 589.4 452.2 319.96 re f
+/GS3 gs
+0.34 0.63 0.43 rg
+-20 -25 428.4 252.6 re f
+/GS4 gs
+0.96 0.82 0.36 rg
+333.20000000000005 -20 333.20000000000005 210.5 re f
 Q
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 25 Tf
 1 0 0 1 48 788 Tm
 (EV Charger Simulator — Investor One Pager) Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 17 Tf
 1 0 0 1 48 754 Tm
 (Infrastructure software for the rapidly scaling EV charging) Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 17 Tf
 1 0 0 1 48 732 Tm
 (market) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 706 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 686 Tm
 (Investment thesis) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 667 Tm
 (EV charging networks are expanding quickly, but reliability and) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 652 Tm
 (interoperability remain major bottlenecks. The EV Charger Simulator addresses) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 637 Tm
 (this gap by enabling operators and platform teams to test charging behavior at) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 622 Tm
 (scale before production rollout.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 603 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 583 Tm
 (Problem) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 564 Tm
 (EV ecosystem players face expensive, slow, and inconsistent validation cycles:) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 548 Tm
 (• Hardware-dependent testing slows product delivery.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 532 Tm
 (• Production incidents from untested edge cases increase downtime and support) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 517 Tm
 (cost.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 501 Tm
 (• Multi-vendor OCPP integration creates recurring QA complexity.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 482 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 462 Tm
 (Solution) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 443 Tm
 (A software-only charger simulation platform that reproduces real station) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 428 Tm
 (behavior for engineering, QA, and operations:) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 412 Tm
 (• Simulates single stations, multi-connector sites, and full fleets.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 396 Tm
 (• Emulates core OCPP 1.6J message flows and remote-control commands.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 380 Tm
 (• Compresses test time with accelerated-session simulation.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 364 Tm
 (• Enables repeatable, automated regression and load testing.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 345 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 325 Tm
 (Strategic value proposition) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 306 Tm
 (• **Mission-critical reliability layer:** improves charger uptime and network) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 291 Tm
 (trust.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 275 Tm
 (• **Cost-efficiency driver:** reduces hardware lab dependency and manual QA) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 260 Tm
 (effort.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 244 Tm
 (• **Scalable go-to-market enabler:** shortens deployment timelines for growing) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 229 Tm
 (charge networks.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 213 Tm
 (• **Platform expansion path:** foundation for analytics, compliance) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 198 Tm
 (validation, and managed test services.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 179 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 159 Tm
 (Market context) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 140 Tm
 (• EV adoption and charging infrastructure rollout continue to accelerate) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 125 Tm
 (globally.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 109 Tm
 (• Operators need dependable tooling to onboard hardware vendors and maintain) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 94 Tm
 (SLA-grade performance.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 78 Tm
 (• As networks scale, software-led validation becomes non-optional.) Tj
@@ -271,144 +279,152 @@ ET
 endstream
 endobj
 6 0 obj
-<< /Length 2245 >>
+<< /Length 2366 >>
 stream
 q
-0.90 0.97 0.92 rg
+0.97 0.99 0.98 rg
 0 0 595 842 re f
-0.98 0.97 0.86 rg
-0 437.84000000000003 595 404.15999999999997 re f
-0.98 0.97 0.86 rg
-0 0 327.25 235.76000000000002 re f
+/GS1 gs
+0.67 0.82 0.71 rg
+-40 530.46 547.4 353.64 re f
+/GS2 gs
+0.96 0.82 0.36 rg
+202.3 589.4 452.2 319.96 re f
+/GS3 gs
+0.34 0.63 0.43 rg
+-20 -25 428.4 252.6 re f
+/GS4 gs
+0.96 0.82 0.36 rg
+333.20000000000005 -20 333.20000000000005 210.5 re f
 Q
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 794 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 774 Tm
 (Monetization options) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 755 Tm
 (• Annual SaaS licenses by environment and station volume) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 739 Tm
 (• Tiered plans for advanced scenarios \(fleet stress, diagnostics, reporting\)) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 723 Tm
 (• Enterprise support and integration packages) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 707 Tm
 (• White-label QA modules for platform partners) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 688 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 668 Tm
 (Why now) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 649 Tm
 (Charging operators are moving from pilot projects to large-scale deployments.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 634 Tm
 (The shift creates immediate demand for tools that reduce integration risk,) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 619 Tm
 (protect uptime, and speed rollout.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 600 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 580 Tm
 (Execution focus) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 561 Tm
 (• Deepen protocol and scenario coverage.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 545 Tm
 (• Expand automation and reporting for enterprise QA teams.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 529 Tm
 (• Integrate with CI/CD and observability stacks.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 513 Tm
 (• Build channel partnerships with EV software and hardware ecosystems.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 494 Tm
 () Tj
 ET
 BT
-0.25 0.55 0.30 rg
+0.18 0.49 0.29 rg
 /F2 13 Tf
 1 0 0 1 48 474 Tm
 (Vision) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 455 Tm
 (Become the default simulation and validation layer for EV charging software) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 11.5 Tf
 1 0 0 1 48 440 Tm
 (delivery worldwide.) Tj
 ET
 BT
-0.11 0.24 0.17 rg
+0.09 0.20 0.14 rg
 /F1 12 Tf
 1 0 0 1 48 421 Tm
 () Tj
@@ -421,19 +437,35 @@ endobj
 8 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
+9 0 obj
+<< /Type /ExtGState /ca 0.24 /CA 0.24 >>
+endobj
+10 0 obj
+<< /Type /ExtGState /ca 0.18 /CA 0.18 >>
+endobj
+11 0 obj
+<< /Type /ExtGState /ca 0.12 /CA 0.12 >>
+endobj
+12 0 obj
+<< /Type /ExtGState /ca 0.16 /CA 0.16 >>
+endobj
 xref
-0 9
+0 13
 0000000000 65535 f 
 0000000009 00000 n 
 0000000058 00000 n 
 0000000123 00000 n 
-0000000259 00000 n 
-0000000395 00000 n 
-0000004753 00000 n 
-0000007049 00000 n 
-0000007119 00000 n 
+0000000323 00000 n 
+0000000523 00000 n 
+0000005002 00000 n 
+0000007419 00000 n 
+0000007489 00000 n 
+0000007564 00000 n 
+0000007620 00000 n 
+0000007677 00000 n 
+0000007734 00000 n 
 trailer
-<< /Size 9 /Root 1 0 R >>
+<< /Size 13 /Root 1 0 R >>
 startxref
-7194
+7791
 %%EOF

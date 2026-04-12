@@ -4,10 +4,12 @@ const path = require('path');
 
 const PAGE = { width: 595, height: 842, margin: 48 };
 const COLORS = {
-  bgGreen: '0.90 0.97 0.92',
-  bgYellow: '0.98 0.97 0.86',
-  text: '0.11 0.24 0.17',
-  accent: '0.25 0.55 0.30'
+  base: '0.97 0.99 0.98',
+  mint: '0.67 0.82 0.71',
+  green: '0.34 0.63 0.43',
+  yellow: '0.96 0.82 0.36',
+  text: '0.09 0.20 0.14',
+  accent: '0.18 0.49 0.29'
 };
 
 function escapePdfText(text) {
@@ -118,12 +120,24 @@ function styledLinesToPages(styledLines) {
 function pageContentStream(pageItems) {
   const out = [];
   out.push('q');
-  out.push(`${COLORS.bgGreen} rg`);
+  out.push(`${COLORS.base} rg`);
   out.push(`0 0 ${PAGE.width} ${PAGE.height} re f`);
-  out.push(`${COLORS.bgYellow} rg`);
-  out.push(`0 ${PAGE.height * 0.52} ${PAGE.width} ${PAGE.height * 0.48} re f`);
-  out.push(`${COLORS.bgYellow} rg`);
-  out.push(`0 0 ${PAGE.width * 0.55} ${PAGE.height * 0.28} re f`);
+
+  out.push('/GS1 gs');
+  out.push(`${COLORS.mint} rg`);
+  out.push(`-40 ${PAGE.height * 0.63} ${PAGE.width * 0.92} ${PAGE.height * 0.42} re f`);
+
+  out.push('/GS2 gs');
+  out.push(`${COLORS.yellow} rg`);
+  out.push(`${PAGE.width * 0.34} ${PAGE.height * 0.70} ${PAGE.width * 0.76} ${PAGE.height * 0.38} re f`);
+
+  out.push('/GS3 gs');
+  out.push(`${COLORS.green} rg`);
+  out.push(`-20 -25 ${PAGE.width * 0.72} ${PAGE.height * 0.30} re f`);
+
+  out.push('/GS4 gs');
+  out.push(`${COLORS.yellow} rg`);
+  out.push(`${PAGE.width * 0.56} -20 ${PAGE.width * 0.56} ${PAGE.height * 0.25} re f`);
   out.push('Q');
 
   for (const item of pageItems) {
@@ -147,6 +161,7 @@ function buildPdfFromPages(pages) {
   const pageObjStart = 3;
   const contentObjStart = pageObjStart + totalPages;
   const fontObjStart = contentObjStart + totalPages;
+  const gsObjStart = fontObjStart + 2;
 
   addObj('<< /Type /Catalog /Pages 2 0 R >>');
   const kids = Array.from({ length: totalPages }, (_, i) => `${pageObjStart + i} 0 R`).join(' ');
@@ -154,7 +169,7 @@ function buildPdfFromPages(pages) {
 
   for (let i = 0; i < totalPages; i++) {
     addObj(
-      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE.width} ${PAGE.height}] /Resources << /Font << /F1 ${fontObjStart} 0 R /F2 ${fontObjStart + 1} 0 R >> >> /Contents ${contentObjStart + i} 0 R >>`
+      `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PAGE.width} ${PAGE.height}] /Resources << /Font << /F1 ${fontObjStart} 0 R /F2 ${fontObjStart + 1} 0 R >> /ExtGState << /GS1 ${gsObjStart} 0 R /GS2 ${gsObjStart + 1} 0 R /GS3 ${gsObjStart + 2} 0 R /GS4 ${gsObjStart + 3} 0 R >> >> /Contents ${contentObjStart + i} 0 R >>`
     );
   }
 
@@ -165,6 +180,10 @@ function buildPdfFromPages(pages) {
 
   addObj('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>');
   addObj('<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>');
+  addObj('<< /Type /ExtGState /ca 0.24 /CA 0.24 >>');
+  addObj('<< /Type /ExtGState /ca 0.18 /CA 0.18 >>');
+  addObj('<< /Type /ExtGState /ca 0.12 /CA 0.12 >>');
+  addObj('<< /Type /ExtGState /ca 0.16 /CA 0.16 >>');
 
   let pdf = '%PDF-1.4\n';
   const xref = [0];
