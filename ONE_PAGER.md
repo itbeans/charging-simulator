@@ -1,80 +1,49 @@
 # EV Charger Simulator
-### Test your EV charging infrastructure — without a single physical charger.
+## Validate OCPP charging operations without physical hardware
 
----
+### What it is
+The EV Charger Simulator is a production-focused **OCPP 1.6J simulation toolkit** that behaves like real charging stations over WebSocket. Teams use it to test onboarding, charging sessions, billing logic, and remote command handling before deploying to live infrastructure.
 
-## What is it?
+### Why teams use it
+- **Launch faster:** test charger workflows on day one, without waiting for devices in the field.
+- **Lower QA cost:** run repeatable automated scenarios instead of manual hardware test cycles.
+- **Catch edge cases early:** validate resets, reconnects, meter bursts, and fleet surges in controlled environments.
+- **Scale confidently:** simulate dozens of connectors and multiple stations in parallel.
 
-A fully-featured **OCPP 1.6J charger simulator** that connects to your ev-server exactly like a real charging station would. Boot it, run sessions, stress-test your backend, and validate every remote command — all from a single command line.
+### Core capabilities
+- Full charger lifecycle support:
+  - `BootNotification`, `StatusNotification`, `Heartbeat`
+  - `Authorize`, `StartTransaction`, `MeterValues`, `StopTransaction`
+- Handles server-initiated commands, including:
+  - `RemoteStartTransaction`, `RemoteStopTransaction`, `Reset`
+  - `ChangeConfiguration`, `GetConfiguration`
+  - `SetChargingProfile`, `ClearCache`, `UnlockConnector`
+- Meter values for realistic downstream testing:
+  - Energy, power, current, and voltage streams
 
----
+### Four usage modes
+1. **boot** — keeps a simulated charger online for manual command testing.
+2. **session** — executes one complete charge session flow.
+3. **multi** — runs concurrent sessions across all connectors.
+4. **fleet** — launches many chargers simultaneously for load and stress tests.
 
-## Why it matters
+### Built for engineering and operations
+- Supports local development, CI pipelines, and staging validation.
+- Accelerated time mode can compress long sessions into short test windows.
+- Helps verify platform behavior before touching customer-facing systems.
 
-| Without the simulator | With the simulator |
-|---|---|
-| Need physical hardware to test | Test instantly on any machine |
-| One charger = one test scenario | Spin up 100 chargers in seconds |
-| Slow real-world session timing | Compress hours into seconds |
-| Hard to reproduce edge cases | Script any scenario repeatably |
-| Risky to test resets/faults in prod | Safely break things in dev |
+### Typical outcomes
+- Faster integration with OCPP-compliant backends
+- Better reliability of remote operations
+- More predictable releases with fewer field regressions
+- Improved confidence in billing and transaction analytics
 
----
-
-## Four modes. One tool.
-
-### `boot` — Always-on charger
-Connects and stays online. Responds to every command from the dashboard in real time. Perfect for manual QA sessions.
+### Quick start
 ```bash
+npm install
+cp config.example.json config.json
 npm run dev boot
 ```
 
-### `session` — Single charging session
-Authorize → Start → Meter values → Stop. A complete end-to-end flow, done in seconds with accelerated time.
-```bash
-EV_SIM_ID_TAG=AABBCCDD EV_SIM_ACCELERATED=true npm run dev session
-```
-
-### `multi` — All connectors, simultaneously
-Fills every connector on the charger at once. Validates smart charging, load balancing, and per-connector billing in one run.
-```bash
-EV_SIM_ID_TAGS=TAG001,TAG002 EV_SIM_ACCELERATED=true npm run dev multi
-```
-
-### `fleet` — 10, 50, 100 chargers at once
-Launches a full fleet of independent chargers in parallel. The fastest way to load-test your server.
-```bash
-EV_SIM_FLEET_COUNT=50 EV_SIM_ACCELERATED=true npm run dev fleet
-```
-
----
-
-## Everything a real charger does
-
-**Charger → Server**
-`BootNotification` · `Heartbeat` · `StatusNotification` · `Authorize` · `StartTransaction` · `MeterValues` · `StopTransaction`
-
-**Server → Charger** *(all handled automatically)*
-`RemoteStart/Stop` · `ChangeConfiguration` · `GetConfiguration` · `Reset` · `UnlockConnector` · `ClearCache` · `SetChargingProfile` · `GetDiagnostics` · `UpdateFirmware`
-
-Meter values include **energy, power, voltage, and current** — exactly what your billing and analytics pipelines expect.
-
----
-
-## Accelerated time
-
-Run a **60-minute charging session in 60 seconds.** Every simulated minute becomes a real second, so you can validate billing calculations, inactivity alerts, and session timeouts in a coffee break.
-
----
-
-## Zero hardware. Zero cost. Instant setup.
-
-```bash
-cd simulator && npm install
-cp config.example.json config.json   # add your tenant ID + registration token
-npm run dev boot                      # your charger is live
-```
-
----
-
-*Built on OCPP 1.6J · TypeScript · WebSocket · Works with any ev-server deployment*
+### Best fit
+The simulator is ideal for EV charging platforms, CPO engineering teams, integrators, and QA organizations that need dependable, repeatable charger behavior at scale.
