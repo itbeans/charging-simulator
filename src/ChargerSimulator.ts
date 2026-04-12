@@ -590,10 +590,10 @@ export class ChargerSimulator {
   // Send helpers
   // ---------------------------------------------------------------------------
 
-  private sendRequest<T>(command: string, payload: Record<string, unknown>): Promise<T> {
+  private sendRequest<T>(command: string, payload: object): Promise<T> {
     return new Promise((resolve, reject) => {
       const messageId = uuidv4();
-      const message: OCPPCall = [OCPPMessageType.CALL, messageId, command, payload];
+      const message: OCPPCall = [OCPPMessageType.CALL, messageId, command, payload as Record<string, unknown>];
       const raw = JSON.stringify(message);
 
       if (this.config.verbose) {
