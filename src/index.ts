@@ -17,6 +17,7 @@
  */
 
 import * as fs from 'fs';
+import * as http from 'http';
 import * as path from 'path';
 import { ChargerSimulator } from './ChargerSimulator';
 import { SimulatorConfig } from './types';
@@ -56,20 +57,31 @@ function loadConfig(): SimulatorConfig {
 // ---------------------------------------------------------------------------
 
 async function cmdBoot(config: SimulatorConfig): Promise<void> {
+  // Minimal HTTP server so Cloud Run startup/liveness probes succeed.
+  // Cloud Run sends GET / to $PORT (default 8080); without a listener the
+  // container fails health checks and is never kept alive.
+  const port = parseInt(process.env['PORT'] ?? '8080', 10);
+  const healthServer = http.createServer((_, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('OK\n');
+  });
+  healthServer.listen(port);
+
   console.log(`Starting simulator for ${config.chargingStationId}…`);
   const sim = new ChargerSimulator(config);
   await sim.connect();
 
   console.log('Simulator running. Press Ctrl+C to stop.');
-  // Keep alive
   await new Promise<void>((resolve) => {
+    const shutdown = () => {
+      healthServer.close();
+      void sim.disconnect().then(resolve);
+    };
     process.on('SIGINT', () => {
       console.log('\nShutting down…');
-      void sim.disconnect().then(resolve);
+      shutdown();
     });
-    process.on('SIGTERM', () => {
-      void sim.disconnect().then(resolve);
-    });
+    process.on('SIGTERM', () => shutdown());
   });
 }
 

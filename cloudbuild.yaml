@@ -27,12 +27,12 @@ steps:
     args:
       - build
       - -f
-      - simulator/Dockerfile       # Dockerfile location relative to repo root
+      - Dockerfile
       - -t
       - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA
       - -t
       - ${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:latest
-      - simulator                  # Build context is the simulator/ directory
+      - .                          # Build context is the repo root
 
   # ── Step 2: Push (SHA tag) ────────────────────────────────────────────────────
   - name: gcr.io/cloud-builders/docker
@@ -72,6 +72,7 @@ steps:
       - --region=${_REGION}
       - --platform=managed
       - --no-allow-unauthenticated        # No public HTTP access needed
+      - --ingress=none                    # No inbound traffic; outbound WebSocket only
       - --service-account=${_SA}
       - --min-instances=1                 # Prevent scale-to-zero (keep WebSocket alive)
       - --max-instances=1                 # One charger identity = one instance
@@ -84,6 +85,26 @@ steps:
       - --set-env-vars=EV_SIM_STATION_ID=SIM-CS-001,EV_SIM_VERBOSE=false
       - --args=boot
       - --project=${_PROJECT_ID}
+
+  # ── Step 5: Pin Cloud Run Jobs to the new image ───────────────────────────────
+  # Jobs were created by cloudrun/jobs.sh using :latest.
+  # This step updates all three to the same SHA-pinned image as the boot service,
+  # so every job execution is traceable to a specific commit.
+  # Uses `|| true` so a missing job definition (e.g. on first deploy) doesn't fail the build.
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    id: update-jobs
+    waitFor:
+      - push-sha
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        for JOB in ev-sim-session ev-sim-multi ev-sim-fleet; do
+          gcloud run jobs update $$JOB \
+            --image=${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO}/ev-charger-sim:$SHORT_SHA \
+            --region=${_REGION} \
+            --project=${_PROJECT_ID} 2>/dev/null || true
+        done
 
 # Export both image tags to the build artifacts
 images:
