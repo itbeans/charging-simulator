@@ -34,6 +34,7 @@ gcloud services enable \
   artifactregistry.googleapis.com \
   cloudbuild.googleapis.com \
   secretmanager.googleapis.com \
+  monitoring.googleapis.com \
   --project="$PROJECT_ID"
 
 # ── 2. Artifact Registry repository ──────────────────────────────────────────
@@ -129,7 +130,7 @@ echo ""
 echo "    Or use gcloud (replace YOUR_GITHUB_ORG with your GitHub org/user):"
 echo ""
 echo "    gcloud builds triggers create github \\"
-echo "      --repo-name=ev-server \\"
+echo "      --repo-name=charging-simulator \\"
 echo "      --repo-owner=YOUR_GITHUB_ORG \\"
 echo "      --branch-pattern='^main$' \\"
 echo "      --build-config=simulator/cloudbuild.yaml \\"

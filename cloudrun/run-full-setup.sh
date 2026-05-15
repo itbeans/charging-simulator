@@ -221,6 +221,7 @@ gcloud run deploy "$SERVICE_NAME" \
   --region="$REGION" \
   --platform=managed \
   --no-allow-unauthenticated \
+  --ingress=none \
   --service-account="$SA_EMAIL" \
   --min-instances=1 \
   --max-instances=1 \
