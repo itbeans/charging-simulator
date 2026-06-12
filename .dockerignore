@@ -1,0 +1,18 @@
+# Keep the build context minimal: only package manifests, tsconfig,
+# src/ and config.example.json are needed (see Dockerfile)
+.git
+node_modules
+dist
+config.json
+
+# Docs and marketing assets
+*.md
+*.pdf
+*.pptx
+scripts/
+cloudrun/
+cloudbuild.yaml
+
+# Local tooling
+*.log
+.DS_Store

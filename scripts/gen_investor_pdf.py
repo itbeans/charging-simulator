@@ -85,7 +85,7 @@ y=bul(c,[
     "Every new CSMS, fleet operator & energy retailer must validate their platform before go-live",
     "No software-native solution exists for comprehensive OCPP testing at scale — until now",
     "Hardware test lab: €50,000–€200,000  |  Integration test cycle: 6–12 weeks per release",
-    "23% of new EV charging deployments report billing or connectivity defects within 30 days of go-live",
+    "A single billing defect across 100 stations can generate hundreds of incorrect invoices per day",
 ],y); y-=0.25*cm
 
 # MARKET OPPORTUNITY

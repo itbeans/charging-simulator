@@ -22,7 +22,6 @@ It speaks the same WebSocket/JSON protocol that real chargers use and handles al
 ## Setup
 
 ```bash
-cd simulator
 npm install
 cp config.example.json config.json
 ```
@@ -133,7 +132,7 @@ Charger IDs are generated as `<chargingStationId>-01`, `-02`, etc.
 
 | Variable | Description |
 |---|---|
-| `EV_SIM_CONFIG` | Path to config file (default: `simulator/config.json`) |
+| `EV_SIM_CONFIG` | Path to config file (default: `config.json` in the repo root) |
 | `EV_SIM_SERVER_URL` | Override `serverUrl` from config |
 | `EV_SIM_STATION_ID` | Override `chargingStationId` from config |
 | `EV_SIM_VERBOSE` | Set `true` to log all raw OCPP messages |
@@ -207,10 +206,15 @@ npm start boot
 ## Project structure
 
 ```
-simulator/
+charging-simulator/
 ├── config.example.json          # Copy to config.json and fill in your values
 ├── package.json
 ├── tsconfig.json
+├── Dockerfile                   # Multi-stage production image
+├── cloudbuild.yaml              # Cloud Build CI/CD pipeline
+├── DEPLOYMENT.md                # GCP deployment guide
+├── cloudrun/                    # GCP setup scripts (setup, jobs, monitoring)
+├── scripts/                     # Doc/PDF generation tooling
 └── src/
     ├── index.ts                 # CLI entry point (boot | session | multi | fleet)
     ├── types.ts                 # OCPP 1.6 type definitions

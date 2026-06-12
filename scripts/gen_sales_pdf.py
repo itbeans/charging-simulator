@@ -140,7 +140,7 @@ y = bullet(c, [
     "A billing defect across 100 stations generates ~500 incorrect invoices per day",
     "Hardware test lab: €50,000 – €200,000  (€500 – €5,000 per charger)",
     "Hardware-based integration tests: 6–12 weeks per release cycle",
-    "23% of new EV deployments report billing or connectivity defects within 30 days of go-live",
+    "Untested infrastructure goes live — and real drivers pay the price",
     "Edge cases (concurrent sessions, resets, network drops) are nearly impossible to reproduce with hardware",
 ], y)
 y -= 0.3*cm

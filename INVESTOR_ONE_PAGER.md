@@ -103,6 +103,10 @@ Onboard and certify new charging hardware vendors against OCPP without physical 
 
 The EV charging industry is at an infrastructure inflection point. The gap between deployment speed and testing capability is widening every quarter. The EV Charger Simulator closes that gap — making it possible to validate any charging network **before it fails in the field**, not after.
 
+**Platform expansion path:** the simulator is the foundation for a broader validation layer — analytics, compliance certification, managed test services, and white-label QA modules for platform partners — backed by channel partnerships across the EV software and hardware ecosystems.
+
+**Vision:** become the default simulation and validation layer for EV charging software delivery worldwide.
+
 > *"The best time to find a bug in your billing engine is before your first driver gets an incorrect invoice."*
 
 ---

@@ -53,8 +53,8 @@ export class ChargerSimulator {
   private config: SimulatorConfig;
   private ws: WebSocket | null = null;
 
-  // Pending outgoing requests: messageId → { resolve, reject }
-  private pending = new Map<string, { resolve: (v: unknown) => void; reject: (e: unknown) => void }>();
+  // Pending outgoing requests: messageId → { resolve, reject, timer }
+  private pending = new Map<string, { resolve: (v: unknown) => void; reject: (e: unknown) => void; timer: ReturnType<typeof setTimeout> }>();
 
   // Internal connector states
   private connectors: Map<number, ConnectorState> = new Map();
@@ -62,6 +62,18 @@ export class ChargerSimulator {
   // Timers
   private heartbeatTimer: ReturnType<typeof setInterval> | null = null;
   private meterValueTimers: Map<number, ReturnType<typeof setInterval>> = new Map();
+
+  // Reconnect state (boot mode): when enabled, a dropped connection is retried
+  // with exponential backoff instead of leaving the charger silently offline.
+  private autoReconnect = false;
+  private intentionalClose = false;
+  private reconnectDelayMs = 5_000;
+  private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
+
+  // Time acceleration factor: 1 = real time; 60 = each real second represents
+  // one simulated minute. Scales the meter value timer so accelerated sessions
+  // report energy proportional to their simulated duration.
+  private timeAcceleration = 1;
 
   // Local configuration store (responds to GetConfiguration / ChangeConfiguration)
   private configuration: Map<string, string> = new Map([
@@ -96,6 +108,7 @@ export class ChargerSimulator {
   async connect(): Promise<void> {
     const url = `${this.config.serverUrl}/${this.config.chargingStationId}`;
     this.info(`Connecting to ${url}`);
+    this.intentionalClose = false;
 
     return new Promise((resolve, reject) => {
       this.ws = new WebSocket(url, ['ocpp1.6']);
@@ -104,6 +117,7 @@ export class ChargerSimulator {
         this.info('WebSocket connected');
         try {
           await this.boot();
+          this.reconnectDelayMs = 5_000; // successful boot resets the backoff
           resolve();
         } catch (err) {
           reject(err);
@@ -125,21 +139,64 @@ export class ChargerSimulator {
         this.stopAllMeterValueTimers();
         // Reject any outstanding promises
         for (const [, p] of this.pending) {
+          clearTimeout(p.timer);
           p.reject(new Error(`WebSocket closed (code=${code})`));
         }
         this.pending.clear();
+        this.scheduleReconnect();
       });
     });
   }
 
   /** Gracefully disconnect. */
   async disconnect(): Promise<void> {
+    this.intentionalClose = true;
+    if (this.reconnectTimer !== null) {
+      clearTimeout(this.reconnectTimer);
+      this.reconnectTimer = null;
+    }
     this.stopHeartbeat();
     this.stopAllMeterValueTimers();
     if (this.ws && this.ws.readyState === WebSocket.OPEN) {
       this.ws.close(1000, 'Simulator shutdown');
     }
     this.ws = null;
+  }
+
+  /** True while the WebSocket to the ev-server is open. */
+  isConnected(): boolean {
+    return this.ws !== null && this.ws.readyState === WebSocket.OPEN;
+  }
+
+  /** Enable automatic reconnection with exponential backoff (used in boot mode). */
+  enableAutoReconnect(): void {
+    this.autoReconnect = true;
+  }
+
+  /**
+   * Set the time acceleration factor (>= 1). With factor 60, each real second
+   * represents one simulated minute: the meter value timer fires 60× faster and
+   * each sample still accounts for a full MeterValueSampleInterval of energy,
+   * so accelerated sessions report energy consistent with their simulated duration.
+   */
+  setTimeAcceleration(factor: number): void {
+    this.timeAcceleration = Math.max(1, factor);
+  }
+
+  private scheduleReconnect(): void {
+    if (!this.autoReconnect || this.intentionalClose || this.reconnectTimer !== null) {
+      return;
+    }
+    const delay = this.reconnectDelayMs;
+    this.reconnectDelayMs = Math.min(this.reconnectDelayMs * 2, 60_000);
+    this.info(`Reconnecting in ${delay / 1000}s…`);
+    this.reconnectTimer = setTimeout(() => {
+      this.reconnectTimer = null;
+      this.connect().catch((err) => {
+        this.error('Reconnect attempt failed', err instanceof Error ? err.message : err);
+        this.scheduleReconnect();
+      });
+    }, delay);
   }
 
   // ---------------------------------------------------------------------------
@@ -279,7 +336,11 @@ export class ChargerSimulator {
   private startMeterValueTimer(connectorId: number): void {
     this.stopMeterValueTimer(connectorId);
     const intervalSecs = parseInt(this.configuration.get('MeterValueSampleInterval') ?? '60', 10);
-    this.info(`Starting meter value reporting every ${intervalSecs}s for connector ${connectorId}`);
+    // In accelerated mode the timer fires proportionally faster; each sample
+    // still accounts for intervalSecs of simulated time (see sendMeterValues),
+    // keeping reported energy consistent with the simulated session duration.
+    const realIntervalMs = (intervalSecs * 1000) / this.timeAcceleration;
+    this.info(`Starting meter value reporting every ${intervalSecs}s${this.timeAcceleration > 1 ? ` (accelerated ×${this.timeAcceleration})` : ''} for connector ${connectorId}`);
 
     const timer = setInterval(async () => {
       const connector = this.connectors.get(connectorId);
@@ -292,7 +353,7 @@ export class ChargerSimulator {
       } catch (err) {
         this.error(`MeterValues failed for connector ${connectorId}`, err);
       }
-    }, intervalSecs * 1000);
+    }, realIntervalMs);
 
     this.meterValueTimers.set(connectorId, timer);
   }
@@ -417,6 +478,10 @@ export class ChargerSimulator {
         case 'RemoteStartTransaction': {
           const req = payload as unknown as RemoteStartTransactionRequest;
           const connectorId = req.connectorId ?? 1;
+          if (!this.connectors.has(connectorId)) {
+            result = { status: 'Rejected' };
+            break;
+          }
           // Respond first, then execute asynchronously
           result = { status: 'Accepted' };
           this.sendResponse(messageId, result);
@@ -469,10 +534,27 @@ export class ChargerSimulator {
           this.info(`Reset requested: ${req.type} — acknowledging, simulating reboot`);
           result = { status: 'Accepted' };
           this.sendResponse(messageId, result);
-          // Simulate reboot delay then re-boot
+          // A real charger loses in-flight transactions on reset: stop them with
+          // the matching OCPP reason, halt all timers, then re-run boot.
+          const stopReason = req.type === 'Hard' ? 'HardReset' : 'SoftReset';
           void (async () => {
+            for (const [, c] of this.connectors) {
+              if (c.transactionId !== null) {
+                try {
+                  await this.stopTransaction(c.id, stopReason);
+                } catch (err) {
+                  this.error(`Failed to stop transaction on connector ${c.id} during reset`, err);
+                }
+              }
+            }
+            this.stopHeartbeat();
+            this.stopAllMeterValueTimers();
             await sleep(2000);
-            await this.boot();
+            try {
+              await this.boot();
+            } catch (err) {
+              this.error('Re-boot after reset failed', err);
+            }
           })();
           return;
         }
@@ -564,18 +646,16 @@ export class ChargerSimulator {
     if (messageType === OCPPMessageType.CALL_RESULT) {
       // Response to one of our requests
       const payload = parsed[2] as Record<string, unknown>;
-      const pending = this.pending.get(messageId);
+      const pending = this.takePending(messageId);
       if (pending) {
-        this.pending.delete(messageId);
         pending.resolve(payload);
       } else {
         this.error(`Received CALL_RESULT for unknown messageId: ${messageId}`);
       }
     } else if (messageType === OCPPMessageType.CALL_ERROR) {
       const [, , errorCode, errorDescription] = parsed as OCPPCallError;
-      const pending = this.pending.get(messageId);
+      const pending = this.takePending(messageId);
       if (pending) {
-        this.pending.delete(messageId);
         pending.reject(new Error(`OCPP Error ${errorCode}: ${errorDescription}`));
       }
     } else if (messageType === OCPPMessageType.CALL) {
@@ -600,32 +680,41 @@ export class ChargerSimulator {
         this.debug(`→ ${command}`, payload);
       }
 
-      this.pending.set(messageId, {
-        resolve: resolve as (v: unknown) => void,
-        reject,
-      });
-
       if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-        this.pending.delete(messageId);
         reject(new Error('WebSocket is not open'));
         return;
       }
 
-      this.ws.send(raw, (err) => {
-        if (err) {
-          this.pending.delete(messageId);
-          reject(err);
-        }
-      });
-
       // Request timeout (30 seconds)
-      setTimeout(() => {
-        if (this.pending.has(messageId)) {
-          this.pending.delete(messageId);
+      const timer = setTimeout(() => {
+        if (this.pending.delete(messageId)) {
           reject(new Error(`Request timeout for ${command} (messageId=${messageId})`));
         }
       }, 30_000);
+
+      this.pending.set(messageId, {
+        resolve: resolve as (v: unknown) => void,
+        reject,
+        timer,
+      });
+
+      this.ws.send(raw, (err) => {
+        if (err) {
+          this.takePending(messageId);
+          reject(err);
+        }
+      });
     });
+  }
+
+  /** Remove a pending request and clear its timeout timer. */
+  private takePending(messageId: string): { resolve: (v: unknown) => void; reject: (e: unknown) => void } | undefined {
+    const p = this.pending.get(messageId);
+    if (p) {
+      this.pending.delete(messageId);
+      clearTimeout(p.timer);
+    }
+    return p;
   }
 
   private sendResponse(messageId: string, payload: Record<string, unknown>): void {

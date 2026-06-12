@@ -114,7 +114,7 @@ add_text_box(s, "Testing EV charging software with physical hardware is expensiv
 bullets = [
     ("💸", "Hardware test lab: €50,000 – €200,000", "€500 – €5,000 per physical charger"),
     ("🕐", "Integration test cycles: 6–12 weeks", "per release cycle with physical equipment"),
-    ("📊", "23% of new EV deployments", "report billing or connectivity defects within 30 days of go-live"),
+    ("📊", "100s of incorrect invoices per day", "from a single billing defect across just 100 charging stations"),
     ("🔁", "Edge cases impossible to script", "concurrent sessions, resets, billing failures can't be reproduced reliably"),
     ("⚡", "500 incorrect invoices per day", "from a single billing bug across just 100 charging stations"),
 ]

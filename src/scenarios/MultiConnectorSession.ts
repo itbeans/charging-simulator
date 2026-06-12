@@ -25,6 +25,8 @@ export async function runMultiConnectorSession(
 ): Promise<void> {
   const { sessions, durationMins, accelerated = false } = options;
   const timeScale = accelerated ? 1000 : 60_000;
+  // Keep meter value reporting in step with simulated time (1 min = 1 s → ×60)
+  simulator.setTimeAcceleration(accelerated ? 60 : 1);
 
   console.log(`\n=== Multi-Connector Session ===`);
   console.log(`  Sessions  : ${sessions.map((s) => `connector ${s.connectorId} → ${s.idTag}`).join(', ')}`);

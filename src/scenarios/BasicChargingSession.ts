@@ -28,6 +28,8 @@ export async function runBasicChargingSession(
 ): Promise<void> {
   const { connectorId = 1, idTag, durationMins, accelerated = false } = options;
   const timeScale = accelerated ? 1000 : 60_000; // ms per simulated minute
+  // Keep meter value reporting in step with simulated time (1 min = 1 s → ×60)
+  simulator.setTimeAcceleration(accelerated ? 60 : 1);
 
   console.log(`\n=== Basic Charging Session ===`);
   console.log(`  Connector : ${connectorId}`);

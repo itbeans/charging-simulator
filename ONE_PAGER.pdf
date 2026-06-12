@@ -1,80 +1,767 @@
 %PDF-1.4
-%���� ReportLab Generated PDF document (opensource)
 1 0 obj
-<<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R
->>
+<< /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
->>
+<< /Type /Pages /Count 3 /Kids [ 3 0 R 4 0 R 5 0 R ] >>
 endobj
 3 0 obj
-<<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 9 0 R /F2 10 0 R >> /ExtGState << /GS1 11 0 R /GS2 12 0 R /GS3 13 0 R /GS4 14 0 R >> >> /Contents 6 0 R >>
 endobj
 4 0 obj
-<<
-/BaseFont /Symbol /Name /F3 /Subtype /Type1 /Type /Font
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 9 0 R /F2 10 0 R >> /ExtGState << /GS1 11 0 R /GS2 12 0 R /GS3 13 0 R /GS4 14 0 R >> >> /Contents 7 0 R >>
 endobj
 5 0 obj
-<<
-/Contents 9 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 8 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
->>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 9 0 R /F2 10 0 R >> /ExtGState << /GS1 11 0 R /GS2 12 0 R /GS3 13 0 R /GS4 14 0 R >> >> /Contents 8 0 R >>
 endobj
 6 0 obj
-<<
-/PageMode /UseNone /Pages 8 0 R /Type /Catalog
->>
+<< /Length 4812 >>
+stream
+q
+0.97 0.99 0.98 rg
+0 0 595 842 re f
+/GS1 gs
+0.67 0.82 0.71 rg
+-40 530.46 547.4 353.64 re f
+/GS2 gs
+0.96 0.82 0.36 rg
+202.3 589.4 452.2 319.96 re f
+/GS3 gs
+0.34 0.63 0.43 rg
+-20 -25 428.4 252.6 re f
+/GS4 gs
+0.96 0.82 0.36 rg
+333.20000000000005 -20 333.20000000000005 210.5 re f
+Q
+BT
+0.18 0.49 0.29 rg
+/F2 25 Tf
+1 0 0 1 48 788 Tm
+(EV Charger Simulator) Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 17 Tf
+1 0 0 1 48 754 Tm
+(Validate OCPP charging operations without physical hardware) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 728 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 708 Tm
+(What it is) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 689 Tm
+(The EV Charger Simulator is a production-focused **OCPP 1.6J simulation) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 674 Tm
+(toolkit** that behaves like real charging stations over WebSocket. Teams use) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 659 Tm
+(it to test onboarding, charging sessions, billing logic, and remote command) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 644 Tm
+(handling before deploying to live infrastructure.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 625 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 605 Tm
+(The problem it solves) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 586 Tm
+(Testing EV charging software with physical hardware is expensive, slow, and) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 571 Tm
+(hard to scale:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 555 Tm
+(• A hardware test lab costs **€50,000–€200,000** \(€500–€5,000 per charger\).) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 539 Tm
+(• Real-world integration tests take **6–12 weeks** to set up with physical) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 524 Tm
+(equipment.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 508 Tm
+(• Edge cases — concurrent sessions, network drops, firmware resets, billing) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 493 Tm
+(failures — are nearly **impossible to script repeatably** with hardware.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 477 Tm
+(• A single billing defect across 100 charging stations can generate **hundreds) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 462 Tm
+(of incorrect invoices per day** before it is caught.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 443 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 423 Tm
+(Why teams use it) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 404 Tm
+(• **Launch faster:** test charger workflows on day one, without waiting for) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 389 Tm
+(devices in the field.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 373 Tm
+(• **Lower QA cost:** run repeatable automated scenarios instead of manual) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 358 Tm
+(hardware test cycles — **zero hardware, zero unit cost, 5-minute setup**.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 342 Tm
+(• **Catch edge cases early:** validate resets, reconnects, meter bursts, and) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 327 Tm
+(fleet surges in controlled environments.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 311 Tm
+(• **Scale confidently:** simulate dozens of connectors and **hundreds of) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 296 Tm
+(stations in parallel on a single machine**.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 277 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 257 Tm
+(Core capabilities) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 238 Tm
+(• Full charger lifecycle support:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 222 Tm
+(- `BootNotification`, `StatusNotification`, `Heartbeat`) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 206 Tm
+(- `Authorize`, `StartTransaction`, `MeterValues`, `StopTransaction`) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 190 Tm
+(• Handles server-initiated commands, including:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 174 Tm
+(- `RemoteStartTransaction`, `RemoteStopTransaction`, `Reset`) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 158 Tm
+(- `ChangeConfiguration`, `GetConfiguration`) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 142 Tm
+(- `SetChargingProfile`, `ClearChargingProfile`, `ClearCache`,) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 127 Tm
+(`UnlockConnector`, `GetDiagnostics`, `UpdateFirmware`) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 111 Tm
+(• Meter values for realistic downstream testing:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 95 Tm
+(- Energy \(Wh\), power \(W\), voltage \(V\), and current \(A\) streams — exactly what) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 80 Tm
+(billing pipelines expect) Tj
+ET
+endstream
 endobj
 7 0 obj
-<<
-/Author (anonymous) /CreationDate (D:20260412213834+00'00') /Creator (anonymous) /Keywords () /ModDate (D:20260412213834+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (unspecified) /Title (untitled) /Trapped /False
->>
+<< /Length 4586 >>
+stream
+q
+0.97 0.99 0.98 rg
+0 0 595 842 re f
+/GS1 gs
+0.67 0.82 0.71 rg
+-40 530.46 547.4 353.64 re f
+/GS2 gs
+0.96 0.82 0.36 rg
+202.3 589.4 452.2 319.96 re f
+/GS3 gs
+0.34 0.63 0.43 rg
+-20 -25 428.4 252.6 re f
+/GS4 gs
+0.96 0.82 0.36 rg
+333.20000000000005 -20 333.20000000000005 210.5 re f
+Q
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 794 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 774 Tm
+(Four usage modes) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 752 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 735 Tm
+(Mode • What it does • Best for) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 719 Tm
+(`boot` • Keeps a simulated charger online, responding to every dashboard) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 704 Tm
+(command in real time • Manual QA, remote command testing) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 688 Tm
+(`session` • Executes one complete charge session flow: Authorize → Start →) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 673 Tm
+(MeterValues → Stop • End-to-end billing validation) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 657 Tm
+(`multi` • Runs concurrent sessions across all connectors • Smart charging,) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 642 Tm
+(load balancing, per-connector billing) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 626 Tm
+(`fleet` • Launches many chargers simultaneously • Load testing, stress) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 611 Tm
+(testing, CI/CD regression suites) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 592 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 572 Tm
+(Built for engineering and operations) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 553 Tm
+(• Supports local development, CI pipelines, and staging validation.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 537 Tm
+(• **Accelerated time mode:** 1 simulated minute = 1 real second — validate a) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 522 Tm
+(**60-minute charging session in 60 seconds**, or run a full overnight) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 507 Tm
+(regression suite that would take weeks with hardware.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 491 Tm
+(• Helps verify platform behavior before touching customer-facing systems.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 472 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 452 Tm
+(Simulator vs. physical hardware) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 430 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 413 Tm
+(Physical hardware • EV Charger Simulator) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 397 Tm
+(Unit cost • €500 – €5,000 • **€0**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 381 Tm
+(Test lab setup • Days to weeks • **Under 5 minutes**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 365 Tm
+(Concurrent chargers • Limited by budget • **Hundreds on a single machine**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 349 Tm
+(Session duration • Real time \(60 min = 60 min\) • **Compressed \(60 min = 60) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 334 Tm
+(sec\)**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 318 Tm
+(Edge case reproduction • Manual, unreliable • **Fully scripted, 100%) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 303 Tm
+(repeatable**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 287 Tm
+(CI/CD integration • Not possible • **Native — GitHub Actions, GitLab,) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 272 Tm
+(Jenkins**) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 253 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 233 Tm
+(Typical outcomes) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 214 Tm
+(• Faster integration with OCPP-compliant backends) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 198 Tm
+(• Better reliability of remote operations) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 182 Tm
+(• More predictable releases with fewer field regressions) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 166 Tm
+(• Improved confidence in billing and transaction analytics) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 147 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 127 Tm
+(Quick start) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 107 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 90 Tm
+(npm install) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 74 Tm
+(cp config.example.json config.json # add your tenant ID + registration token) Tj
+ET
+endstream
 endobj
 8 0 obj
-<<
-/Count 1 /Kids [ 5 0 R ] /Type /Pages
->>
+<< /Length 2189 >>
+stream
+q
+0.97 0.99 0.98 rg
+0 0 595 842 re f
+/GS1 gs
+0.67 0.82 0.71 rg
+-40 530.46 547.4 353.64 re f
+/GS2 gs
+0.96 0.82 0.36 rg
+202.3 589.4 452.2 319.96 re f
+/GS3 gs
+0.34 0.63 0.43 rg
+-20 -25 428.4 252.6 re f
+/GS4 gs
+0.96 0.82 0.36 rg
+333.20000000000005 -20 333.20000000000005 210.5 re f
+Q
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 794 Tm
+(npm run dev boot # your virtual charger is live) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 777 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 757 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 740 Tm
+(Run a full session with accelerated time:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 723 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 706 Tm
+(EV_SIM_ID_TAG=AABBCCDD EV_SIM_ACCELERATED=true npm run dev session) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 689 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 669 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 652 Tm
+(Stress-test with a 50-charger fleet:) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 635 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 618 Tm
+(EV_SIM_FLEET_COUNT=50 EV_SIM_ACCELERATED=true npm run dev fleet) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 601 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 581 Tm
+() Tj
+ET
+BT
+0.18 0.49 0.29 rg
+/F2 13 Tf
+1 0 0 1 48 561 Tm
+(Best fit) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 542 Tm
+(The simulator is ideal for EV charging platforms, CPO engineering teams,) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 527 Tm
+(integrators, and QA organizations that need dependable, repeatable charger) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 512 Tm
+(behavior at scale.) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 493 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 476 Tm
+(---) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 457 Tm
+() Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 440 Tm
+(**OCPP 1.6J** · **TypeScript / Node.js** · **WebSocket/JSON** · Works with any) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 11.5 Tf
+1 0 0 1 48 425 Tm
+(ev-server deployment · Docker & CI/CD ready) Tj
+ET
+BT
+0.09 0.20 0.14 rg
+/F1 12 Tf
+1 0 0 1 48 406 Tm
+() Tj
+ET
+endstream
 endobj
 9 0 obj
-<<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 4012
->>
-stream
-Gau`VD/\/g')q<+0u.5ldVZjYUo9U]q]S\iDAJ)XMk)Kg&7D3Q9VPfq1*ek?*tJ&"D^^Gq[[T4LMkEMuN2[s\cb)A-MLpW`B_sSk!.:0M]2'+hK@r+YTD1*%JamQ0,5bNuN/DeWL]q4\#U&[eM4ut]9#C6s,=4O*719G0=Qg,81_./PZ4Hej#aE:i&&r&9LD38rGs"P"gl!E'f+1>%,U!VMSJ]sJ6dE30\:<A5,)CiqkKTeG5/k&KJe3lo6Gu,<-Ti$f>/he%"E'b"JG!Z9[9@W,@%K,$e&Fd)mHkrKJr_Vl_jC]F"u'8shY8T@h'U[3XC.JK<dE,XeJjnS!OJEpa'4L+V$a2&.>duL_kiGsYh6uJ6lcEd.X'qf!JpsI9[,M[FT^rM<<:C8WgU3Q"q'&=Qdq^i1lrDeW7*#YE622f=7Wr@NFiXTPd6$+]9<BU^B":s<=-DcebhV1:t5Ji<7VKZEH%?]X%'s*2QJ-DG4V*C7m=t)"p'F>GBh#7,WOe6%Uip/aomR\=BM!LOWL?B)Yf?2pUW*DaN=W55pTW67MHK]UCgVi,&RY=(%d+-=_KJ2;8e=\@r=[up[jhZZQnEuOV[1]k)N.(`Tl%Oh6g3C\fEpTP.c'/b)^Lu]ADdn'RRQTM\51M\74PPB1H=C!%#IbE--:"jlH2U13;tr!W`Fu_@TF0I)aPWSa#.bD/i&V7mdhtk#%%S^%7RFHoXFgE&'V*L>/5J*`4->*okdco10gj$gRmaQGZZ,'RnRcc,>jTS^&jP@<uWHo;LCJ&`tti`=PG/q@o^Z3\j/QpGiAM67bA&-e+4I6U1_<e'L_8;'9fk1_e4`9Kmp`#EBuYl)2G^N!qL8^sIG1VD(p>0P<R$_<:HbbTO60UM+:al%Yu#)U![kA;!Ca>uuh!Hb@>m&?`<$='9/gY@WS/-`tP&7P$[#S#"0KU4sUia=:mXj8;]G4=ejcWmot.\1=m"j\*gbo47gTls_o*T-t(*:^U[K_oT;8Kc]2-%pc7/&f2iMb1PT"ZBB)`(F2ru@<=RRi?t^"gmLo1*0AAe]54T_HZ+Nj_?G\<n#D&dld2SNOXF6!Yo7kYnFf"5!t.KCrf-q^!F5&8?T[/%p)A]`g=<[U2_W3DTSZ!rDLdGk$mT%[YV<s!BQ_@A>2k-F7N!2)+tMoUF3tVf@VHZ?BOUm0#2m,bob%K]1WZ_'/)&\4+LhP#YpptN>R+>%/a!rqNP)7E8881,ha=&U62kgVje#iF<&0e")U`bsbEjH+"K>*5/i#WBiR@i#r@V_b9506@N#?2CDA64[1J,d4BWJs8#0SED-f"NDM1^a)ACmpumHe^%10@)8MF*"*j$,eSNVr'JnZB?,k2gn4Ml&u@0?^@M\Zj"3.>n7+>]uGklTR8YE1]"s=TR;Vaf\[UDTW(#_Hm]iMn9,O6H1H8V&*=VORB'T>7:-+(GJ"l+CVVoM4Vo0Md_l:90.;@dhf:PcDDlt?=o;TLfUmh[6]&BJG:;o4$#R?_2uIBW%k1n+R'6V:=0%KC/pYp&[tq%pfg\ZGuZK_b;Z*"AKd6e?UM8(@R82?O@(t'!kKlEX&QN0_JLBqhj[)\K!YuFVGYgKPDe,afjl4dniRQ^I_<Ll[-Y!X;'MkXi!WW+Yii8J9#Q+X@N(*`W-4F!6)2I-W,XdI_[O@+C)p;B=P"F38rSm78%"!9WjSRl]a\s\*(uM/L%)!?SqA?PBt7@.=]2&Df@J_L`MJGP3ZBE)4'<:Ja[G-D[jm*1YL.Xeq;5uW@A-Rq=hKIMl71+XgD)>6X<dIs'9,7<fe1n\&F#r+iM4t-FK:9;M2S#EA\^$XN'pJ)6AU:.I?ll)L&o:qi7&qqE?I)jls@&nS_Xa,0GFZe3SG'RKFl=5MrFg097j.@=YD(elORR[9Ze]ocI/kS[ii?\`4#gYH'\g506a.1&#N(3S5i-X-Y]XD/P,L;D")"YVjLVt=J1kj*+:ZJp6FS@_Iu?m)7'V/=.@am86ghm."e'fA0q1r0#IB4@KCZa%PZTcFf4O.%_d7F?*r1gZaE*g@f"#LVs@p?AWh[\@rBj'D^2<kbcdJsWd1f0Q[?L'?G>+58@qAOn1XIT?(!Xo(G>HrW]tV4]%f@e5bS>od5EMc:a$QB:NY#61==?5Ca:W4As<>4.'aJ'ntMC(1b#TOd6rhH5MZ'\M$'%]ACmpumHe^%>(0.S7_>hq;_DV`MfLH-6e?<%=d/U_/Us*ebmM;R)]<0p"XHnhSljtCA;NU,j'dY:.s4fm94SP(!JqJhBq'QVXOPoPNGWS`OIPqQS$nlR\6,.r"pLdC8j&:;N=<oZVnR5(TZTKWA*4!280"_T+L>s\BP2OAYi6h"fKs_;1JP-";9&c[BX.dc(3g(Bm`a&mYF`"AV,9-f>D2$uNZjSC5j1:K0L5l!d:GCp3kIA,e$G+qBigJ<?cV@0K\:T2KB^d.Ed3%\#"N;S*.Jqtd0.G:0=YsMRZT%Vp?4NIf&B2YKYE3`_RKt4l72lE*]W&+p]M1kp,Eec1*@akkgg0?(f?dcfm5XN6dj8d1&eZ:Uk.P15*iMRp2`@]/&oSM+4NTqViA$(,cfR:j1aR1QE`1IhqEPk4h11*I8gs:OS%\nN]eH]@`M<=e&,O$ako8VIoMK:TW@:TCEp)Q;(D)P'#A^7Eo2-dFtcSNrMhmBkeK<[Dm)dP'mCP3Eu&4.E>NYa'Imntj%qU-Mc'^kVnG6X^_h3+EUK>*176gaLgL`8&JD/s?%(qca^Bd,>qL=d>W'!%Q2O3VDRZHWPM9r(M;0__R\:7a.RN\`a]I-Y%\CEcHb6i\AM3"HAmEOjRdpIEXuR?09CcoUP2I.3[`XIa%U[P5YR$`!NQ!AcZGGthC/TIIIo]Mm)6joPh&g+T-d,M\Y6X+H:,Q<*+4E%46XD*q9Tin`q/lNi:;S\#Y@i<,OmI;d=P&Ge%CX!GLjJs>&,4Uk`S1ibBZM?O`%n<T4I>kO%%IW"Pf`fU\IV3NmuBT+rGJX,hUJU-Oj>.*80GA9__++r$9Tu#'gC+8_MES8>q-%aE1`1%:LJ3_qI+b8*Cb=%%p>n$\P%4,m+IVYA!cZEb.]+^iK8nu'"@N*)b_UdM2+3=A(]Y)gNAMCI;U[b+.t\($+/^<)\51'g;(&c,P$28pZiPrN_K^9"J'aA'H%*P=hcpgNH&6@hnG-)<m@4l7q;C4e_]>c%tb^5O;GR$AVGoAD+s=I+*hm\Q+C*M#Fj=Fq,&k=UlXncdU9,e)DBh,)4R&&NN6FQb8`T4k.P*+iB/fLZUa`G5Z`ZU<d3&bA;a.SYub_N>0Uu/le/TRmjJpNNpWEN4Q52)^X%BeCGUhs4R+EWZnI.)<OL'b?Y4(TBmY0(%N"&D0CY31_U$SWfJnS3RGls>>clmE0m\l3HVZKeIlS"1dt4($1T8bP>AeS.08%-lg\$^+YUV,jB?=.+#M\-9M[]"YFZCh5AkV;G4J#!F=!fXj3o,3W!1b).TdJXC3[l#pGEtUU];Z@nVU$2FrrRuCog?D'T<mZ*\_;gGAasD6%-"CY:j<sY)5Z5OZ8,t,&IZ/erB-[fq8Hlb4S]E+'=aEW*1p`'3^''>bf0`V/.5o2'YAQ[XH@WNp>Hg'7mYL;TqZm,Ftll"X%YLII&)dPrI?sbiVWSHO9eX$7hBkhdZG+Jg,2(),N9uA/-;kTLi/<B?40ZC81i!7#r>#_N5Sgc/%,Loe7atN@d]'KD.pV/T0)boY=:^'!jAf5+(Y2E04O4[&79PTUKB-&%dO<\4b+W("A"lZ/\fSKM#;Ik%\:]`FaF,Eb1b2/3;$[e_KmNs@-c>2nJ?Pai,5anil>)V&a>(PCD?aPdmj"f#HEK*&*'k.:QJ;$s)^";c[J)>]9pfk(7pg5*Z^59`oi,`n].8kC*bf>]%oY:q>.RGI@E\(j[,RlTAH?s@72/^Kt=t-@1U+=h7fS!YK,1#Zh73kgU[OV?rG8b3kI%#[urAa+p42soCYG@-QcU&3b@K'*,dD+O&_LgeP`$BOL/7Pe%t8J0dbD-~>endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+11 0 obj
+<< /Type /ExtGState /ca 0.24 /CA 0.24 >>
+endobj
+12 0 obj
+<< /Type /ExtGState /ca 0.18 /CA 0.18 >>
+endobj
+13 0 obj
+<< /Type /ExtGState /ca 0.12 /CA 0.12 >>
+endobj
+14 0 obj
+<< /Type /ExtGState /ca 0.16 /CA 0.16 >>
 endobj
 xref
-0 10
+0 15
 0000000000 65535 f 
-0000000061 00000 n 
-0000000112 00000 n 
-0000000219 00000 n 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000129 00000 n 
 0000000331 00000 n 
-0000000408 00000 n 
-0000000611 00000 n 
-0000000679 00000 n 
-0000000940 00000 n 
-0000000999 00000 n 
+0000000533 00000 n 
+0000000735 00000 n 
+0000005598 00000 n 
+0000010235 00000 n 
+0000012475 00000 n 
+0000012545 00000 n 
+0000012621 00000 n 
+0000012678 00000 n 
+0000012735 00000 n 
+0000012792 00000 n 
 trailer
-<<
-/ID 
-[<c8f6790a318439f6742e0674dfa91455><c8f6790a318439f6742e0674dfa91455>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 7 0 R
-/Root 6 0 R
-/Size 10
->>
+<< /Size 15 /Root 1 0 R >>
 startxref
-5102
+12849
 %%EOF

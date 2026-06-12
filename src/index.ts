@@ -9,7 +9,7 @@
  *   boot           Connect and boot (keeps running, responds to server commands)
  *   session        Run a single basic charging session then exit
  *   multi          Run sessions on all connectors simultaneously then exit
- *   scenario <n>   Run a named scenario: basic | multi
+ *   fleet          Run N independent chargers in parallel then exit
  *
  * All options are read from config.json (or the file path in EV_SIM_CONFIG env var).
  * Individual values can be overridden via environment variables:
@@ -57,18 +57,27 @@ function loadConfig(): SimulatorConfig {
 // ---------------------------------------------------------------------------
 
 async function cmdBoot(config: SimulatorConfig): Promise<void> {
+  console.log(`Starting simulator for ${config.chargingStationId}…`);
+  const sim = new ChargerSimulator(config);
+  // A dropped WebSocket must not leave the charger silently offline
+  sim.enableAutoReconnect();
+
   // Minimal HTTP server so Cloud Run startup/liveness probes succeed.
   // Cloud Run sends GET / to $PORT (default 8080); without a listener the
   // container fails health checks and is never kept alive.
+  // Reports 503 while the OCPP WebSocket is down so monitoring sees outages.
   const port = parseInt(process.env['PORT'] ?? '8080', 10);
   const healthServer = http.createServer((_, res) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('OK\n');
+    if (sim.isConnected()) {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('OK\n');
+    } else {
+      res.writeHead(503, { 'Content-Type': 'text/plain' });
+      res.end('DISCONNECTED\n');
+    }
   });
   healthServer.listen(port);
 
-  console.log(`Starting simulator for ${config.chargingStationId}…`);
-  const sim = new ChargerSimulator(config);
   await sim.connect();
 
   console.log('Simulator running. Press Ctrl+C to stop.');

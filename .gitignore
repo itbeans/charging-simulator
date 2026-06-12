@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local configuration — contains tenant ID + registration token; never commit
+config.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+*.swp

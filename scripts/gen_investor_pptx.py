@@ -96,7 +96,7 @@ header_band(s,"THE PROBLEM","EV charging grows at 35% YoY — testing infrastruc
 stats = [
     ("4M+",  "public charging points today","→ 40M projected by 2030  (IEA, 2024)"),
     ("€200K","max cost of a hardware test lab","€500–€5,000 per physical charger"),
-    ("23%",  "of new deployments","report billing or connectivity defects within 30 days of go-live"),
+    ("100s", "of incorrect invoices per day", "from a single billing defect across just 100 stations"),
     ("12 wk","hardware integration test cycle","per release, with physical equipment"),
 ]
 cx = Inches(0.35)
