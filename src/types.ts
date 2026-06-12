@@ -286,6 +286,9 @@ export interface SimulatorConfig {
   /** Meter value reporting interval in seconds during a transaction */
   meterValueIntervalSecs: number;
 
+  /** Timeout for outgoing OCPP requests in seconds (default: 30) */
+  requestTimeoutSecs?: number;
+
   /** Whether to log all raw OCPP messages */
   verbose: boolean;
 }

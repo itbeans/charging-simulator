@@ -203,6 +203,30 @@ npm start boot
 
 ---
 
+## Testing
+
+The test suite runs the simulator against an in-process mock OCPP Central System
+(`test/helpers/MockOCPPServer.ts`) — no external server or hardware needed.
+
+```bash
+npm test          # run once (CI mode)
+npm run test:watch # watch mode during development
+```
+
+Coverage spans the full protocol surface:
+
+| Test file | Covers |
+|---|---|
+| `test/connection.test.ts` | Boot sequence, heartbeats, request timeouts, dropped connections, auto-reconnect |
+| `test/session.test.ts` | Authorize → Start → MeterValues → Stop flow, status transitions, meter accounting, accelerated time |
+| `test/serverCommands.test.ts` | All server → charger commands incl. RemoteStart/Stop, Reset, configuration round-trips |
+| `test/scenarios.test.ts` | End-to-end `session` and `multi` scenarios in accelerated mode |
+
+Tests also run automatically in CI on every push and pull request
+(`.github/workflows/test.yml`).
+
+---
+
 ## Project structure
 
 ```
@@ -215,6 +239,12 @@ charging-simulator/
 ├── DEPLOYMENT.md                # GCP deployment guide
 ├── cloudrun/                    # GCP setup scripts (setup, jobs, monitoring)
 ├── scripts/                     # Doc/PDF generation tooling
+├── test/                        # Vitest suite + mock OCPP server helper
+│   ├── helpers/MockOCPPServer.ts
+│   ├── connection.test.ts
+│   ├── session.test.ts
+│   ├── serverCommands.test.ts
+│   └── scenarios.test.ts
 └── src/
     ├── index.ts                 # CLI entry point (boot | session | multi | fleet)
     ├── types.ts                 # OCPP 1.6 type definitions

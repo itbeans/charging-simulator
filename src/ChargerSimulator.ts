@@ -67,6 +67,7 @@ export class ChargerSimulator {
   // with exponential backoff instead of leaving the charger silently offline.
   private autoReconnect = false;
   private intentionalClose = false;
+  private reconnectInitialDelayMs = 5_000;
   private reconnectDelayMs = 5_000;
   private reconnectTimer: ReturnType<typeof setTimeout> | null = null;
 
@@ -117,7 +118,7 @@ export class ChargerSimulator {
         this.info('WebSocket connected');
         try {
           await this.boot();
-          this.reconnectDelayMs = 5_000; // successful boot resets the backoff
+          this.reconnectDelayMs = this.reconnectInitialDelayMs; // successful boot resets the backoff
           resolve();
         } catch (err) {
           reject(err);
@@ -169,8 +170,10 @@ export class ChargerSimulator {
   }
 
   /** Enable automatic reconnection with exponential backoff (used in boot mode). */
-  enableAutoReconnect(): void {
+  enableAutoReconnect(initialDelayMs = 5_000): void {
     this.autoReconnect = true;
+    this.reconnectInitialDelayMs = initialDelayMs;
+    this.reconnectDelayMs = initialDelayMs;
   }
 
   /**
@@ -685,12 +688,13 @@ export class ChargerSimulator {
         return;
       }
 
-      // Request timeout (30 seconds)
+      // Request timeout (default 30 seconds)
+      const timeoutMs = (this.config.requestTimeoutSecs ?? 30) * 1000;
       const timer = setTimeout(() => {
         if (this.pending.delete(messageId)) {
           reject(new Error(`Request timeout for ${command} (messageId=${messageId})`));
         }
-      }, 30_000);
+      }, timeoutMs);
 
       this.pending.set(messageId, {
         resolve: resolve as (v: unknown) => void,
